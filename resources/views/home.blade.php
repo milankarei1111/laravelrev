@@ -5,7 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                    @yield('admin.card')
+                    @yield('boss.card')
+                    @yield('user.card')
+                {{-- <div class="card-header">User Dashboard</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,9 +16,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
-                </div>
+                    一般使用者登入頁面
+                </div> --}}
             </div>
         </div>
     </div>
