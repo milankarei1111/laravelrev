@@ -3,8 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Session;
 use Cartalyst\Sentinel\Laravel\Facades\Sentinel;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class SentinelBossAccess
 {
