@@ -16,29 +16,39 @@ class AuthController extends Controller
     public function login()
     {
         $credentials = request(['email', 'password']);
-        $token = auth('api')->attempt($credentials); // 預設guard:web, 故在此須加入指定api
-        if(! $token){
+        // 預設guard:web, 故在此須加入指定api
+        if(! $token = auth('api')->attempt($credentials)){
             return response()->json([
-                'status' => 'E00002','message' => 'invalid credentials', 'value' => ''
-            ], 401);
+                'message' => 'invalid credentials'], 401);
         }
-        return response()->json([
-            'status' => '000000', 'message' => 'sucess', 'value' =>$token
-        ]);
+        return $this->respondWithToken($token);
     }
 
     public function userData()
     {
         return response()->json([
-            'status' => '000000', 'message' => 'sucess', 'value' => auth()->user()
+            'value' => auth()->user()
         ]);
+    }
+
+    public function refresh()
+    {
+        return $this->respondWithToken(auth()->refresh());
     }
 
     public function logout()
     {
-        auth()->logout(); // 等於 Auth::user()
+        auth()->logout();
         return response()->json([
-            'status' => '000000', 'message' => 'sucess', 'value' => ''
+            'message' => 'Successfully logged out'
+        ]);
+    }
+
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'value' => $token,
+            'expires_in' => auth('api')->factory()->getTTL() * 60
         ]);
     }
 }
