@@ -164,6 +164,8 @@ return [
         Cartalyst\Sentinel\Laravel\SentinelServiceProvider::class,
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        Fideloper\Proxy\TrustedProxyServiceProvider::class,
+
 
 
         /*
