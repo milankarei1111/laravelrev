@@ -36,4 +36,11 @@ return [
         'redirect' => 'http://localhost:9991/login/github/callback',
     ],
 
+    'facebook' => [
+        'client_id' => env('FACEBOOK_APP_ID'),
+        'client_secret' => env('FACEBOOK_APP_SECRET'),
+        'redirect' => 'http://localhost:9991/login/facebook/callback',
+    ],
+
+
 ];
