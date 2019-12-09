@@ -64,10 +64,11 @@
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Login with</label>
                             <div class="col-md-8 offset-md-4">
-                                <a href="{{ route('login.github') }}" class="btn btn-primary">
+                                {{-- <a href="{{ route('login.provider') }}/github" class="btn btn-primary"> --}}
+                                <a href="{{ url('/login/github') }}" class="btn btn-primary">
                                     <span style="margin-right: 10px">
                                         <svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                             <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -79,7 +80,10 @@
                                             </g>
                                         </svg>
                                     </span>
-                                    Login with GitHub
+                                    GitHub
+                                </a>
+                                <a href="{{ url('/login/facebook') }}" class="btn btn-primary">
+                                    Facebook
                                 </a>
                             </div>
                         </div>
