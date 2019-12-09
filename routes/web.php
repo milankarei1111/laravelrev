@@ -17,6 +17,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
+
+Route::group(['prefix' => 'login/github', 'namespace' => 'Auth'], function () {
+    Route::get('/', 'LoginController@redirrectProvder')->name('login.github');
+    Route::get('/callback', 'LoginController@handleProviderCallback');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
