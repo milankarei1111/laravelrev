@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class OAuthProvider extends Model
 {
+    protected $table = 'oauth_providers';
     protected $guarded = ['id'];
     protected $hidden = [
         'token', 'refresh_token'
@@ -13,6 +15,6 @@ class OAuthProvider extends Model
 
    public function user()
    {
-        $this->belongsTo(OAuthProvider::class);
+      return $this->belongsTo(User::class);
    }
 }
