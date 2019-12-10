@@ -18,10 +18,20 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::namespace('Auth')
-        ->prefix('auth')
-        ->middleware('api')
-        ->group(function () {
+    ->prefix('auth')
+    ->middleware('api')
+    ->group(function () {
         Route::match(['get', 'post'], '/user', 'AuthController@userData');
         Route::post('/login', 'AuthController@login');
         Route::post('/logout', 'AuthController@logout');
-});
+    });
+
+Route::namespace('API')->prefix('users')
+    ->middleware('api')
+    ->group(function () {
+        Route::match(['get', 'post'], '/', 'UserController@index');
+        Route::get('/{id}', 'UserController@show');
+        Route::post('/', 'UserController@store');
+        Route::put('/{id}', 'UserController@update');
+        Route::delete('/{id}', 'UserController@destroy');
+    });
