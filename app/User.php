@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\OAuthProvider;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -60,7 +61,7 @@ class User extends Authenticatable implements JWTSubject
 
     public function oauthProviders()
     {
-        return $this->hasMany(User::class);
+       return $this->hasMany(OAuthProvider::class);
     }
 
 }
