@@ -64,4 +64,9 @@ class User extends Authenticatable implements JWTSubject
        return $this->hasMany(OAuthProvider::class);
     }
 
+    public function getfullnameAttribute()
+    {
+        return "職位:{$this->first_name} {$this->last_name}";
+    }
+
 }
