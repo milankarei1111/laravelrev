@@ -33,19 +33,19 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://localhost:9991/login/github/callback',
+        'redirect'  => env('APP_URL') . ':9991/login/github/callback',
     ],
 
     'facebook' => [
         'client_id' => env('FACEBOOK_APP_ID'),
         'client_secret' => env('FACEBOOK_APP_SECRET'),
-        'redirect' => 'http://localhost:9991/login/facebook/callback',
+        'redirect'  => env('APP_URL') . ':9991/login/facebook/callback',
     ],
 
     'google' => [
-        'client_id'     => env('GOOGLE_ID'),
+        'client_id' => env('GOOGLE_ID'),
         'client_secret' => env('GOOGLE_SECRET'),
-        'redirect'      => env('APP_URL') . ':9991/login/google/callback',
+        'redirect' => env('APP_URL') . ':9991/login/google/callback',
     ],
 
 
