@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\User;
+use App\Models\OAuthProvider;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+
 
 class LoginController extends Controller
 {
@@ -40,48 +43,74 @@ class LoginController extends Controller
     }
 
     /**
-    * 將用戶重定向至Githut頁面
-    *
-    * @return Response
-    */
-    public function redirrectProvder()
+     * 將用戶重定向至Githut頁面
+     *
+     * @return Response
+     */
+    public function redirrectProvder($provider)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
      * 從Github取得用戶資訊
      *  @return Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
         try {
-            $authUser = Socialite::driver('github')->user();
-
+            $user = Socialite::driver($provider)->user();
+            $authUser = $this->findOrCreateUser($user, $provider);
+            Auth::login($authUser);
+            return redirect($this->redirectTo);
         } catch (Exception $e) {
-            return Redirect::to('login/github');
+            return redirect('login');
         }
-        dd($authUser);
-        Auth::login($authUser, true);
+    }
+    /**
+     * 如果用戶在使用社交身份驗證之前已經註冊，請返回該用戶
+     * 否則，創建一個新的用戶對象
+     * @param  $user Socialite user object
+     * @param $provider Social auth provider
+     * @return  User
+     */
+    protected function findOrCreateUser($user, $provider)
+    {
+        $oauthProvider = OAuthProvider::where('provider', $provider)
+            ->where('provider_id', $user->getId())
+            ->first();
 
-        // return redirect('/home');
+        if ($oauthProvider) {
+            $oauthProvider->update([
+                'token' => $user->token,
+                'refresh_token' => $user->refreshToken,
+            ]);
 
-        $user = Socialite::driver('github')->user();
+            return $oauthProvider->user;
+        } else {
+            return $this->createUser($provider, $user);
+        }
+    }
 
-        // OAuth Two Providers
-        $token = $user->token;
-        $refreshToken = $user->refreshToken; // not always provided
-        $expiresIn = $user->expiresIn;
+    protected function createUser($provider, $user)
+    {
 
-        // OAuth One Providers
-        $token = $user->token;
-        $tokenSecret = $user->tokenSecret;
+        $newUser = User::where('email', $user->getEmail())->first();
 
-        // All Providers
-        $user->getId();
-        $user->getNickname();
-        $user->getName();
-        $user->getEmail();
-        $user->getAvatar();
+        if (! $newUser) {
+            $newUser = User::create([
+                'email' => $user->getEmail(),
+                'password' => '',
+            ]);
+        }
+
+        $newUser->oauthProviders()->create([
+            'provider' => $provider,
+            'provider_id' => $user->getId(),
+            'token' => $user->token,
+            'refresh_token' => $user->refreshToken,
+        ]);
+
+        return $newUser;
     }
 }
