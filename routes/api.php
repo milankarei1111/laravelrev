@@ -26,12 +26,15 @@ Route::namespace('Auth')
         Route::post('/logout', 'AuthController@logout');
     });
 
-Route::namespace('API')->prefix('users')
-    ->middleware('api')
-    ->group(function () {
-        Route::match(['get', 'post'], '/', 'UserController@index');
-        Route::get('/{id}', 'UserController@show');
-        Route::post('/', 'UserController@store');
-        Route::put('/{id}', 'UserController@update');
-        Route::delete('/{id}', 'UserController@destroy');
-    });
+// Route::namespace('API')->prefix('users')
+//     ->middleware('api')
+//     ->group(function () {
+//         Route::match(['get', 'post'], '/', 'UserController@index');
+//         Route::get('/{id}', 'UserController@show');
+//         Route::post('/', 'UserController@store');
+//         Route::put('/{id}', 'UserController@update');
+//         Route::delete('/{id}', 'UserController@destroy');
+//     });
+
+    Route::apiResource('/users', 'API\UserController');
+    Route::post('/users/v1/params', 'API\UserController@params');
