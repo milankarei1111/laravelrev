@@ -43,7 +43,7 @@ class LoginController extends Controller
     }
 
     /**
-     * 將用戶重定向至Githut頁面
+     * 將用戶重定向至第三方登入頁面
      *
      * @return Response
      */
@@ -53,7 +53,7 @@ class LoginController extends Controller
     }
 
     /**
-     * 從Github取得用戶資訊
+     * 使用者授權後從第三方回傳授權資料取得用戶資訊
      *  @return Response
      */
     public function handleProviderCallback($provider)
