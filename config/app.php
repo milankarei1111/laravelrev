@@ -165,6 +165,7 @@ return [
         Tymon\JWTAuth\Providers\LaravelServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class,
 
 
 
@@ -234,7 +235,8 @@ return [
         'Activation' => Cartalyst\Sentinel\Laravel\Facades\Activation::class,
         'Reminder' => Cartalyst\Sentinel\Laravel\Facades\Reminder::class,
         'Sentinel' => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
-
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
     ],
 
 ];
