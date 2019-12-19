@@ -25,12 +25,14 @@ Route::group(['prefix' => 'login', 'namespace' => 'Auth'], function ($provider) 
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
-    Route::group(['middleware' => 'admin'], function (){
-        Route::get('/auth', function () {
-            return view('admin');
-        });
+Route::group(['middleware' => 'auth'], function () {
+    // 管理者
+    Route::group(['as'=>'admin.','middleware' => 'admin', 'prefix' => 'admin'], function (){
+        
+        Route::resource('/user', 'Backend\AdminController');
     });
+
+    // 主管
     Route::group(['middleware' => 'boss'], function (){
         Route::get('/boss', function () {
             return view('boss');

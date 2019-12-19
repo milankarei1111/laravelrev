@@ -30,11 +30,11 @@ class HomeController extends Controller
             Sentinel::login($user);
             if ($user == Sentinel::check()) {
                 if (Sentinel::inRole('Admin')) {
-                    return view('admin');
+                    return view('backend.admin.index');
                 } else if (Sentinel::inRole('Boss')) {
-                    return view('boss');
+                    return view('layouts.boss');
                 } else {
-                    return view('user');
+                    return view('layouts.user');
                 }
             }
         }
