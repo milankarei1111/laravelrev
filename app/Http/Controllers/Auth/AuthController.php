@@ -19,6 +19,7 @@ class AuthController extends Controller
     }
 
     /**
+     * 使用者登入
      * @bodyParam email String required 信箱 Example: abc@abc.com
      * @bodyParam password String required 密碼 Example: 12345678
      */
@@ -34,6 +35,7 @@ class AuthController extends Controller
     }
 
     /**
+     * 取得使用者資訊
      * @authenticated
      * @response {
      *    "value": {

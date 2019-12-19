@@ -12,8 +12,8 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      * @queryParam fields[users]=id,email 顯示哪些欄位 No-example
-     * @queryParam filter['id', 'name', 'email']=abc 包含那些欄位自段 No-example
-     * @queryParam sort=['id', 'email'] 包含那些欄位字段 No-example
+     * @queryParam filter[id/name/email]=abc 包含那些欄位自段 No-example
+     * @queryParam sort=['id/email] 包含那些欄位字段 No-example
      * @queryParam append=fullname 附加欄位 No-example
      * @queryParam include=oauthProviders 關聯資料 No-example
      * @return \Illuminate\Http\Response

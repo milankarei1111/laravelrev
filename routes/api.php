@@ -37,4 +37,3 @@ Route::namespace('Auth')
 //     });
 
     Route::apiResource('/users', 'API\UserController');
-    Route::post('/users/v1/params', 'API\UserController@params');
