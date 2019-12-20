@@ -19,6 +19,7 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
         "laravelcollective/html": "^6.0",
+        "socialiteproviders/instagram": "^3.0",
         "spatie/laravel-query-builder": "^2.3",
         "tymon/jwt-auth": "dev-develop",
         "vinkla/hashids": "^7.0"
