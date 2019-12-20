@@ -12,8 +12,9 @@
             <div class="box-header with-border">
                 <h3 class="box-title">編輯帳號</h3>
             </div><!-- /.box-header -->
+            {{-- {{ Form::model($user, ['route' => ['admin.user.update', $user->id], 'method'=>'PATCH'])}} --}}
+            {{ Form::model($user, ['route' => ['admin.user.update', $user->id], 'method'=>'PATCH'])}}
 
-            {{ Form::model($user, ['action'=>['Backend\AdminController@update', $user->id], 'method'=>'PATCH']) }}
                 <div class="box-body table-responsive no-padding">
                     @csrf
                     <div class="form-group">
