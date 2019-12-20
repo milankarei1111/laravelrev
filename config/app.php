@@ -166,7 +166,7 @@ return [
         Barryvdh\Cors\ServiceProvider::class,
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
-
+        SocialiteProviders\Manager\ServiceProvider::class,
 
 
         /*
