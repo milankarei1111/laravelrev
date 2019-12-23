@@ -48,5 +48,9 @@ return [
         'redirect' => env('APP_URL') . ':9991/login/google/callback',
     ],
 
-
+    'instagram' => [
+        'client_id' => env('INSTAGRAM_ID'),
+        'client_secret' => env('INSTAGRAM_SECRET'),
+        'redirect' => env('APP_URL') . ':9991/login/instagram/callback',
+    ],
 ];

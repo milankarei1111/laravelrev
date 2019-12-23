@@ -88,6 +88,9 @@
                                 <a href="{{ url('/login/google') }}" class="btn btn-primary">
                                     Google
                                 </a>
+                                <a href="{{ url('/login/instagram') }}" class="btn btn-primary">
+                                    Instagram
+                                </a>
                             </div>
                         </div>
                     </form>
