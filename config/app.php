@@ -167,6 +167,7 @@ return [
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         SocialiteProviders\Manager\ServiceProvider::class,
+        Vimeo\Laravel\VimeoServiceProvider::class,
 
 
         /*
@@ -237,6 +238,8 @@ return [
         'Sentinel' => Cartalyst\Sentinel\Laravel\Facades\Sentinel::class,
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class,
+        'Vimeo' => Vimeo\Laravel\Facades\Vimeo::class
+
     ],
 
 ];
