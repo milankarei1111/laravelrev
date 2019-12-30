@@ -23,6 +23,7 @@
         "socialiteproviders/instagram": "^3.0",
         "spatie/laravel-query-builder": "^2.3",
         "tymon/jwt-auth": "dev-develop",
+        "vimeo/laravel": "^5.4",
         "vinkla/hashids": "^7.0"
     },
     "require-dev": {
