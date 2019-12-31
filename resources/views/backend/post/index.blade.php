@@ -7,20 +7,48 @@
     <title>Document</title>
 </head>
 <body>
-    {{ Form::open(['url' => route('posts.store'), 'method' => 'POST']) }}
-    @csrf
-    <div class="form-group bol-fileinput-group video-group">
-        <label>測試vimeo影片</label>
-        <div class="preview video-responsive">
-            <iframe src="https://player.vimeo.com/video/381976962" width="1024" height="768" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="" title="Untitled"></iframe>
+    <div class="container">
+        <div class="content">
+            <div class="title">Laravel image Demo</div>
+            <div>
+                <p>Origin Image 1221 * 264</p>
+                <img src="{{ asset($pathArr['origin_path']) }}"><br/>
+            </div>
+
+            <div class="hr"><i class="fa fa-hand-o-down"></i></div>
+            <div class="item2">
+                <p>Resize To 500 * 100 Image</p>
+                <img src="{{  asset($pathArr['origin_resize_path']) }}"><br/>
+            </div>
+
+            <div class="hr"><i class="fa fa-hand-o-down"></i></div>
+            <div>
+                <p>Resize And Add Watermark Image right</p>
+                <img src="{{  asset($pathArr['watermark_left']) }}"><br/>
+            </div>
+            <div>
+                <p>Resize And Add Watermark Image left </p>
+                <img src="{{  asset($pathArr['watermark_right']) }}"><br/>
+            </div>
+            <div>
+                <p>Resize widen 1500 and blur</p>
+                <img src="{{  asset($pathArr['origin_widen_path']) }}"><br/>
+            </div>
+            <div>
+                <p>And canvas</p>
+                <img src="{{  asset($pathArr['canvas_path']) }}"><br/>
+            </div>
+            <div>
+                <p>And canvas and Watermark</p>
+                <img src="{{  asset($pathArr['canvas_watermark_path']) }}"><br/>
+            </div>
+            <div class="hr"><i class="fa fa-hand-o-down"></i></div>
+            <div>
+                <p>And canvas and Watermark</p>
+                <img src="{{  asset($pathArr['examples']) }}"><br/>
+            </div>
         </div>
-
-        <span class="btn btn-default btn-md fileinput-button">
-            <input class="video-uploader" data-url={{route('videos.upload')}} data-role="videos" data-width="640" data-height="360" accept="video/*" name="video" type="file">
-        </span>
-
-        <input type="submit" value="儲存">
-       {{Form::close()}}
+    </div>
 </body>
 </html>
 
