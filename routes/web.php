@@ -28,8 +28,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['middleware' => 'auth'], function () {
     // 管理者
     Route::group(['as'=>'admin.','middleware' => 'admin', 'prefix' => 'admin'], function (){
-        
+
         Route::resource('/user', 'Backend\AdminController');
+
     });
 
     // 主管
@@ -42,3 +43,7 @@ Route::group(['middleware' => 'auth'], function () {
         return view('user');
     });
 });
+
+Route::post('videos/upload', 'VideoController@upload')->name('videos.upload');
+Route::resource('/posts', 'Backend\PostController');
+
