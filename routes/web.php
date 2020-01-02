@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
-Route::post('videos/upload', 'VideoController@upload')->name('videos.upload');
+Route::get('videos/test', 'Backend\VideoController@test');
+// Route::post('videos/upload', 'VideoController@upload')->name('videos.upload');
 Route::resource('/posts', 'Backend\PostController');
 
