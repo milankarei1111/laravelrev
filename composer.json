@@ -25,6 +25,7 @@
         "spatie/laravel-query-builder": "^2.3",
         "tymon/jwt-auth": "dev-develop",
         "vimeo/laravel": "^5.4",
+        "vimeo/vimeo-api": "^3.0",
         "vinkla/hashids": "^7.0"
     },
     "require-dev": {
