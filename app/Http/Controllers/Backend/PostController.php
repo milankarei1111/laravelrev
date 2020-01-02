@@ -87,10 +87,6 @@ class PostController extends Controller
         // $img = Image::canvas(200, 300, '#ff0000');
         // // send HTTP header and output image data
         // return $img->response();
-
-        // $img = Image::cache(function($image) {
-        //     $image->make($logo)->resize(300, 200)->greyscale();
-        // });
     }
 
     /**
