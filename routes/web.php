@@ -48,3 +48,5 @@ Route::get('videos/test', 'Backend\VideoController@test');
 // Route::post('videos/upload', 'VideoController@upload')->name('videos.upload');
 Route::resource('/posts', 'Backend\PostController');
 
+// --測試綠界 傳送訂單資訊
+Route::get('/order/send', 'Backend\ECPayController@sendOrder');

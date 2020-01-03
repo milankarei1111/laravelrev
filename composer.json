@@ -23,6 +23,7 @@
         "laravelcollective/html": "^6.0",
         "socialiteproviders/instagram": "^3.0",
         "spatie/laravel-query-builder": "^2.3",
+        "tsaiyihua/laravel-ecpay": "^2.1",
         "tymon/jwt-auth": "dev-develop",
         "vimeo/laravel": "^5.4",
         "vimeo/vimeo-api": "^3.0",
