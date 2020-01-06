@@ -50,3 +50,14 @@ Route::resource('/posts', 'Backend\PostController');
 
 // --測試綠界 傳送訂單資訊
 Route::get('/order/send', 'Backend\ECPayController@sendOrder');
+
+// --測試綠界 查詢訂單
+Route::get('/order/queryInfo', 'Backend\ECPayController@queryInfo');
+
+//  --測試綠界 開立發票
+Route::get('/order/sendOrderWithInvoice', 'Backend\ECPayController@sendOrderWithInvoice');
+
+//  --測試綠界 查詢發票
+Route::get('/order/queryInvInfo', 'Backend\ECPayController@queryInvInfo');
+
+
